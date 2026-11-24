@@ -32,7 +32,7 @@ jobs:
     steps:
       - name: Generate a token
         id: generate-token
-        uses: actions/create-github-app-token@v3.3.0
+        uses: actions/create-github-app-token@v3.4.0
         with:
           client-id: ${{ vars.ESPHOME_GITHUB_APP_CLIENT_ID }}
           private-key: ${{ secrets.ESPHOME_GITHUB_APP_PRIVATE_KEY }}
@@ -41,7 +41,7 @@ jobs:
 
       - name: Draft release
         id: release-draft
-        uses: release-drafter/release-drafter@v7.10.0
+        uses: release-drafter/release-drafter@v7.11.0
         with:
           token: ${{ steps.generate-token.outputs.token }}
 
@@ -89,7 +89,7 @@ jobs:
           submodules: true
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v10.3.3
+        uses: astral-sh/setup-uv@v10.4.0
 
       - name: Set version
         env:
